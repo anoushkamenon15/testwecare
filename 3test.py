@@ -10,12 +10,6 @@ classifier = pickle.load(pickle_in)
 def welcome(): 
 	return 'welcome all'
 
-"""def calculate_bmi(weight, height):
-    bmi = weight / (height * height) 
-
-    return bmi"""
-
-
 #bmi = calculate_bmi(weight_kg, height_m)
 # defining the function which will make the prediction using 
 # the data which the user inputs 
@@ -36,11 +30,11 @@ def prediction(weight,height,bmi,cycleri,cyclelength,weightgain,hairgrowth,skind
           								1 if pimples == "Yes" else 0 
          ]])
 
+	
 	if prediction == [1]:
-		print("You are at risk of having PCOS")
+			return("You are at risk of having PCOS");
 	else:
-		print("You are not at risk of having PCOS") 
-	#return prediction 
+			return("You are not at risk of having PCOS")  
 	
 
 # this is the main function in which we define our webpage 
@@ -52,7 +46,7 @@ def main():
 	# the font and background color, the padding and the text to be displayed 
 	html_temp = """ 
 	<div style ="background-color:#F3AFAF;padding:13px"> 
-	<h1 style ="color:black;text-align:center;">Risk Assessment</h1> 
+	<h1 style ="color:black;text-align:left;">Risk Assessment</h1> 
 	</div> 
 	"""
 	
@@ -65,7 +59,7 @@ def main():
 	# Setting appropriate min_value, you can change them according to your data
 	weight = st.number_input("Enter weight in kg", min_value=0.00, value=0.00, step = 0.01)
 	height = st.number_input("Enter height in m", min_value=0.00, value=0.00, step = 0.01)
-	bmi = st.number_input("Enter BMI", weight/(height*height))
+	bmi = st.number_input("Enter BMI")
 	cycleri = st.radio("Do you have regular periods?", ["Yes", "No"], key="cycle_regular")  # Key added
 	cyclelength = st.number_input("Enter Cycle length", min_value=0, value=0)
 	weightgain = st.radio("Have you gained weight?", ["Yes", "No"], key="weight_gain")  # Key added
@@ -79,7 +73,7 @@ def main():
 	 
 	if st.button("Predict"): 
 		result = prediction(weight,height,bmi,cycleri,cyclelength,weightgain,hairgrowth,skindark,hairloss,pimples) 
-	st.success('The output is {}'.format(result)) 
+	st.success(' {}'.format(result)) 
 	
 
 if __name__=='__main__': 
