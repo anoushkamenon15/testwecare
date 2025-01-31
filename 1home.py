@@ -34,6 +34,15 @@ with col2:
         """,
         unsafe_allow_html=True,
     )
+st.markdown("""
+    <style>
+        .stButton > button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+""", unsafe_allow_html=True)
 if st.button("Home"):
     st.switch_page("1home.py")
 if st.button("ABOUT"):
