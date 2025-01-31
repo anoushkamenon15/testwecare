@@ -36,12 +36,25 @@ with col2:
     )
 st.markdown("""
     <style>
-        .stButton > button {
+        .button-container {
             position: fixed;
             top: 10px;
             right: 10px;
+            background-color: #f3afaf;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stButton > button {
+            margin: 5px;
         }
     </style>
+""", unsafe_allow_html=True)
+
+# Create a container for the buttons
+with st.container():
+    st.markdown('<div class="button-container">', unsafe_allow_html=True)
 """, unsafe_allow_html=True)
 if st.button("Home"):
     st.switch_page("1home.py")
