@@ -1,122 +1,92 @@
 import streamlit as st
 
+# Set page configuration (optional)
 st.set_page_config(
     page_title="PCOS We Care",
-    page_icon=":heart:",  # You can choose a relevant icon
-    layout="wide",
+    page_icon="🩺",  # You can use an emoji or image icon
+    layout="wide"  # or "centered"
 )
 
-# Custom CSS for styling
+# --- Header Section ---
+col1, col2 = st.columns([1, 2])  # Adjust ratio as needed
+st.title("PCOS WE CARE") 
+	
+	# here we define some of the front end elements of the web page like 
+	# the font and background color, the padding and the text to be displayed 
+html_temp = """ 
+	<div style ="background-color:#F3AFAF;padding:13px"> 
+	<h1 style ="color:black;text-align:left;">HOME</h1> 
+	</div> 
+	"""
+	
+	# this line allows us to display the front end aspects we have 
+	# defined in the above code 
+st.markdown(html_temp, unsafe_allow_html = True)
+
+with col2:
+    st.markdown(
+        """
+        <div style="text-align: right;">  
+            <a href="#" style="margin: 0 10px; text-decoration: none; color: #333;">Home</a>
+            <a href="#" style="margin: 0 10px; text-decoration: none; color: #333;">About</a>
+            <a href="#" style="margin: 0 10px; text-decoration: none; color: #333;">Contact</a>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+if st.button("Home"):
+    st.switch_page("1home.py")
+if st.button("ABOUT"):
+    st.switch_page("pages/2about.py")
+if st.button("BEGIN YOUR TEST"):
+    st.switch_page("pages/3test.py")
+    
+
+# --- Main Content Section ---
+st.markdown("---")  # Separator line
+
+st.markdown(
+    """
+    <div style="text-align: center; padding: 20px;">
+        <p style="font-size: 24px;">IF YOU HAVE EVER STRUGGLED WITH</p>
+        <p style="font-size: 24px;">IRREGULAR PERIODS, MOOD SWINGS,</p>
+        <p style="font-size: 24px;">IRRITABILITY, ETC.</p>
+        <p style="font-size: 24px;">THESE SYMPTOMS MIGHT LOOK</p>
+        <p style="font-size: 24px;">NORMAL BUT IT COULD ALSO BE THE</p>
+        <p style="font-size: 24px;">SYMPTOMS OF POLYCYSTIC OVARY</p>
+        <p style="font-size: 24px;">SYNDROME (PCOS)</p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+# --- Button Section ---
+st.markdown(
+    """
+    <div style="text-align: center; padding: 20px;">
+        <button style="background-color: #F3AFAF; border: none; color: #FFF; padding: 15px 30px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 5px;">
+            BEGIN YOUR TEST
+        </button>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+# --- Styling (Optional) ---
 st.markdown(
     """
     <style>
-    body {
-        font-family: sans-serif;
-    }
-    .header {
-        background-color: #f05094; /* Pink header */
-        #color: white;
-        padding: 1rem;
-        display: flex;
-        justify-content: space-between; /* Align items to edges */
-        align-items: center; /* Vertically center items */
-    }
-    .header-title {
-        font-weight: bold;
-        font-size: 1.5em; /* Adjust as needed */
-    }
-    .nav-links {
-        display: flex;
-    }
-    .nav-links a {
-        color: white;
-        text-decoration: none;
-        margin-left: 1rem; /* Space between links */
-        padding: 0.5rem 1rem; /* Add some padding */
-        border-radius: 5px; /* Rounded corners */
-        background-color: #d13f7f; /* Slightly darker pink */
-    }
-    .content {
-        padding: 2rem;
-        text-align: center; /* Center the text */
-    }
-    .highlighted-text {
-        font-size: 1.2em;
-        line-height: 1.5; /* Improve readability */
-        margin-bottom: 2rem;
-    }
-    .begin-test-button {
-        background-color: #F3AFAF; /* Pink button */
-        color: white;
-        padding: 0.75rem 1.5rem;
-        border: none;
-        border-radius: 5px;
-        font-size: 1.1em;
-        cursor: pointer;
-    }
+        body {
+            font-family: sans-serif; /* Choose your preferred font */
+            color: #333; /* Dark gray text color */
+        }
+        .main {
+            padding: 20px;
+        }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-# Header
-st.markdown("<div class='header'>", unsafe_allow_html=True)
-st.markdown("<span class='header-title'>PCOS We Care</span>", unsafe_allow_html=True)
-st.markdown("<div class='nav-links'>", unsafe_allow_html=True)
-def go_home():
-    
-    st.markdown(
-        """
-        <meta http-equiv="refresh" content="0; url=/1home.py"> 
-        """,
-        unsafe_allow_html=True,
-    ) 
-st.button(
-    label="Home", 
-    on_click=go_home,  # Call the go_home function on click
-    key="home_button" # Give it a unique key
-)
-def go_about():
-    
-    st.markdown(
-        """
-        <meta http-equiv="refresh" content="0; url=pages/2about.py"> 
-        """,
-        unsafe_allow_html=True,
-    ) 
-st.button(
-    label="About", 
-    on_click=go_about,  # Call the go_home function on click
-    key="about_button" # Give it a unique key
-)
-#st.markdown("<a href='#'>Home</a>", unsafe_allow_html=True)
-#st.markdown("<a href='#'>About</a>", unsafe_allow_html=True)
-st.markdown("<a href='#'>Contact</a>", unsafe_allow_html=True)
-st.markdown("</div>", unsafe_allow_html=True)
-st.markdown("</div>", unsafe_allow_html=True)
 
-# Main content area
-st.markdown("<div class='content'>", unsafe_allow_html=True)
-st.markdown("<div class='highlighted-text'>", unsafe_allow_html=True)
-st.markdown("IF YOU HAVE EVER STRUGGLED WITH") 
-st.markdown("IRREGULAR PERIODS, MOOD SWINGS, IRRITABILITY, ETC.")
-st.markdown("THESE SYMPTOMS MIGHT LOOK NORMAL BUT IT COULD ALSO BE ")
-st.markdown("THE SYMPTOMS OF POLYCYSTIC OVARY SYNDROME (PCOS)",
- unsafe_allow_html=True)
-st.markdown("</div>", unsafe_allow_html=True)
 
-if st.button("BEGIN YOUR TEST", key="begin_test"):  # Added a key here
-    # Redirect or do something when the button is clicked
-       st.session_state.test_started = True  # Set a flag in session state
-
-if "test_started" in st.session_state and st.session_state.test_started:
-    # Redirect using JavaScript (more seamless)
-    st.markdown(
-        """
-        <meta http-equiv="refresh" content="0; 
-        url=pages/3test.py">
-        """,
-        unsafe_allow_html=True,
-    )
-    #st.write("Test started (placeholder)")  # Replace with your test logic
-st.markdown("</div>", unsafe_allow_html=True)
