@@ -55,11 +55,16 @@ st.markdown("""
             <a href="?nav=home">Home</a>
             <a href="?nav=about">About</a>
             <a href="?nav=risk">Risk Assessment</a>
+            <a href="?nav=ack">Acknowledgment</a>
         </div>
     </div>
 """, unsafe_allow_html=True)
+
+
 def navigate_to(page):
     st.query_params.update(nav=page)
+
+
 # --- URL-based Navigation ---
 # query_params = st.experimental_get_query_params()
 # selected_page = query_params.get("nav", ["home"])[0]
@@ -68,7 +73,6 @@ selected_page = query_params.get("nav", "home")  # Default to "home"
 
 # Set query parameters (if needed)
 st.query_params.update(nav=selected_page)
-
 
 # --- Home Page ---
 # if selected_page == "home":
@@ -184,7 +188,7 @@ elif selected_page == "about":
     with st.columns(3)[1]:
         st.image("C:/Users/Hritika/test/pcos2.jpg", caption="Lifecycle of Ovum in Healthy and Polycystic Ovary")
     st.markdown("""
-            <div style='text-align: center;'>
+            <div style='text-align: left;'>
                 <p style='font-size: 20px; font-family: Georgia;'>
                     PCOS is a hormonal disorder that affects reproductive-aged women. It can cause irregular periods, 
                     excessive androgen levels, and ovarian cysts. Early diagnosis and lifestyle changes can help manage 
@@ -198,7 +202,7 @@ elif selected_page == "about":
                     long-term complications such as type 2 diabetes and heart disease. Polycystic Ovary Syndrome (PCOS) is one 
                     of the most common reproductive disorders in women and despite this, diagnostic challenges, delayed 
                     diagnosis and less than optimal treatment regimens plague the condition. PCOS is a hormonal disorder 
-                    affecting 6% - 26% of women in the reproductive age group worldwide. Early detection will facilitate 
+                    affecting 6% - 13% of women in the reproductive age group worldwide. Early detection will facilitate 
                     timely intervention, helping to manage symptoms and reduce the risk of long-term complications associated with PCOS 
                     <br><strong>Complications of PCOS:</strong><br>
                     Type 2 diabetes: More than half of people with PCOS develop type 2 diabetes by age 40. <br>
@@ -213,6 +217,22 @@ elif selected_page == "about":
             </div>
         """, unsafe_allow_html=True)
 
+# --- Acknowledgment Page ---
+if selected_page == "ack":
+    st.markdown("<h1 style='color:#DC3C68;text-align:center;'>Acknowledgment</h1>", unsafe_allow_html=True)
+
+    st.markdown("""
+        <div style='text-align: center;'>
+            <p style='font-size: 20px; font-family: Georgia;'>
+                We would like to express our sincere gratitude to all the medical professionals, researchers, 
+                and contributors who have dedicated their efforts to the study and awareness of PCOS.
+                Special thanks to healthcare providers and support groups for their continuous guidance in helping 
+                individuals manage PCOS effectively. <br><br>
+                We also appreciate the users of **PCOS We Care** for trusting us and using this platform to learn more 
+                about their health.
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
 
 # --- Risk Assessment Page ---
 elif selected_page == "risk":
@@ -250,3 +270,4 @@ elif selected_page == "risk":
     if st.button("Predict"):
         result = predict_risk(weight, height, cycleri, cyclelength, weightgain, hairgrowth, skindark, hairloss, pimples)
         st.success(result)
+
