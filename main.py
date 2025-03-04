@@ -75,7 +75,60 @@ selected_page = query_params.get("nav", "home")  # Default to "home"
 st.query_params.update(nav=selected_page)
 
 # --- Home Page ---
-
+# if selected_page == "home":
+#     st.markdown("<h1 style='color:#DC3C68;text-align:center;'>PCOS WE CARE</h1>", unsafe_allow_html=True)
+#     # st.markdown('<div class="center-image">', unsafe_allow_html=True)
+#     # st.image("C:/Users/Hritika/test/pcos1.jpg", caption="Comparison of Healthy and Polycystic Ovary")
+#     # st.markdown('</div>', unsafe_allow_html=True)
+#     with st.columns(3)[1]:
+#         st.image("C:/Users/Hritika/test/pcos1.jpg")
+#     st.markdown("""
+#         <div style='text-align: center;'>
+#             <p style='font-size: 20px; font-family: Georgia;'>
+#                 If you have struggled with irregular periods, mood swings, irritability, etc.,
+#                 these symptoms might look normal but could be signs of PCOS.
+#             </p>
+#         </div>
+#     """, unsafe_allow_html=True)
+#
+#
+#     # Add custom CSS for styling the button
+#     st.markdown("""
+#         <style>
+#             .beautiful-button {
+#                 display: inline-block;
+#                 background-color: #ff66b2; /* Pink background */
+#                 color: white;
+#                 font-size: 18px;
+#                 padding: 15px 40px;
+#                 text-align: center;
+#                 text-decoration: none; /* Remove the underline */
+#                 border-radius: 50px;
+#                 transition: background-color 0.3s ease, transform 0.2s ease;
+#             }
+#
+#             .beautiful-button:hover {
+#                 background-color: #ff3385; /* Darker pink on hover */
+#                 transform: scale(1.1); /* Slightly increase size on hover */
+#             }
+#
+#             .beautiful-button:active {
+#                 background-color: #ff1a73; /* Even darker pink on click */
+#             }
+#
+#             /* Center the button within the page */
+#             .center-button {
+#                 display: flex;
+#                 justify-content: center;
+#                 align-items: center;
+#                 height: 100vh; /* Full viewport height */
+#             }
+#         </style>
+#         """, unsafe_allow_html=True)
+#
+#     # Center the button on the page
+#     st.markdown('<div class="center-button"><a href="?nav=risk" class="beautiful-button">Begin Your Test</a></div>',
+#                 unsafe_allow_html=True)
 if selected_page == "home":
     st.markdown("<h1 style='color:#DC3C68;text-align:center;'>PCOS WE CARE</h1>", unsafe_allow_html=True)
 
@@ -217,4 +270,3 @@ elif selected_page == "risk":
     if st.button("Predict"):
         result = predict_risk(weight, height, cycleri, cyclelength, weightgain, hairgrowth, skindark, hairloss, pimples)
         st.success(result)
-
