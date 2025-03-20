@@ -133,7 +133,7 @@ if selected_page == "home":
     st.markdown("<h1 style='color:#DC3C68;text-align:center;'>PCOS WE CARE</h1>", unsafe_allow_html=True)
 
     with st.columns(3)[1]:
-        st.image("C:/Users/Hritika/test/pcos1.jpg")
+        st.image("pcos1.jpg")
 
     st.markdown("""
         <div style='text-align: center;'>
@@ -186,7 +186,7 @@ elif selected_page == "about":
 
     st.markdown("<h1 style='color:#F3AFAF;text-align:center;'>About</h1>", unsafe_allow_html=True)
     with st.columns(3)[1]:
-        st.image("C:/Users/Hritika/test/pcos2.jpg", caption="Lifecycle of Ovum in Healthy and Polycystic Ovary")
+        st.image("pcos2.jpg", caption="Lifecycle of Ovum in Healthy and Polycystic Ovary")
     st.markdown("""
             <div style='text-align: left;'>
                 <p style='font-size: 20px; font-family: Georgia;'>
@@ -228,7 +228,12 @@ if selected_page == "ack":
                 and contributors who have dedicated their efforts to the study and awareness of PCOS.
                 Special thanks to healthcare providers and support groups for their continuous guidance in helping 
                 individuals manage PCOS effectively. <br><br>
-                We also appreciate the users of **PCOS We Care** for trusting us and using this platform to learn more 
+                We extend our sincere gratitude to Dr. Pauras Mhatre,MBBS, KEM Hospital, Mumbai (Reg No. 4079/2024) for his
+                invaluable guidance and support in our research. His expertise in feature selection for the early diagnosis of polycystic ovary
+                syndrome (PCOS) has been instrumental in shaping our study. Additionally, his insights on enhancing the societal impact of
+                this research have been greatly beneficial. We deeply appreciate his time, knowledge, and encouragement throughout this
+                project.
+                We also appreciate the users of PCOS We Care for trusting us and using this platform to learn more 
                 about their health.
             </p>
         </div>
@@ -239,7 +244,7 @@ elif selected_page == "risk":
     st.markdown("<h1 style='color:#F3AFAF;text-align:center;'>Risk Assessment</h1>", unsafe_allow_html=True)
 
     # Load ML Model
-    pickle_in = open("C:/Users/Hritika/test/classifier4.pkl", 'rb')
+    pickle_in = open("random_forest_model.pkl", 'rb')
     classifier = pickle.load(pickle_in)
 
 
